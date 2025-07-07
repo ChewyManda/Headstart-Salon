@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Headstart Salon, Body & Nail Spa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --royal-blue: #0047ab;
+      --accent-red: #d90429;
+      --light-bg: #f9faff;
+      --dark-bg: #0d0f1b;
+      --card-bg: #ffffff;
+      --card-bg-dark: #161927;
+      --text-color: #222;
+      --font-main: 'Poppins', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--font-main);
+    }
+
+    body {
+      background: var(--light-bg);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+  nav {
+  background: linear-gradient(to right, #0047ab, #0356c4);
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 4px 6px;
+  border-radius: 6px;
+  height: auto;
+}
+
+#logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-red);
+}
+
+/* Mobile Nav */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #0047ab;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0047ab, #0b3d91);
+      color: #fff;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero p {
+      opacity: 0.95;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: var(--royal-blue);
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .two-col {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .package-grid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid #e2e2e2;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: var(--accent-red);
+      font-size: 1.25rem;
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .prices ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .prices li {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed #ccc;
+      padding: 0.4rem 0;
+      font-size: 0.95rem;
+    }
+
+    .badge {
+      background: var(--accent-red);
+      color: #fff;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      margin-left: 0.5rem;
+      display: inline-block;
+    }
+
+    .discount {
+      color: var(--accent-red);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      margin-top: auto;
+      background: #111;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: var(--dark-bg);
+        color: #ddd;
+      }
+
+      .card {
+        background: var(--card-bg-dark);
+        border-color: #222;
+      }
+
+      h2 {
+        color: #98c0ff;
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #08276b, #021339);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+ <!-- HEADER -->
+<nav>
+  <div class="nav-container">
+    <div class="logo-container">
+      <img id="logo" src="salon.png" alt="Headstart Logo" />
+    </div>
+    <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Pamper Yourself From Head‑to‑Toe</h1>
+    <p>Headstart Barbershop, Salon &amp; Spa – "We do our best!"</p>
+  </section>
+ <!-- ================= SERVICES ================= -->
+    <section id="services">
+      <h2>Salon &amp; Spa Services</h2>
+      <div class="grid two-col">
+        <!-- Facials -->
+        <div class="card prices">
+          <h3>Facials</h3>
+          <ul>
+            <li><span>Classic Facial</span><span>₱ 450</span></li>
+            <li><span>Signature Facial w/ Collagen&nbsp;Mask &amp; Laser</span><span>₱ 650</span></li>
+            <li><span>Acne Facial w/ PDT Laser</span><span>₱ 650</span></li>
+            <li><span>Diamond Peel Facial (Vit. C&nbsp;Mask &amp; IPL)</span><span>₱ 1,000</span></li>
+            <li><span>Diamond Peel – Armpit</span><span>₱ 850</span></li>
+            <li><span>Korean Glass Skin / Semi‑Permanent Foundation<br>with Collagen Mask (3&nbsp;sessions)</span><span>₱ 3,000</span></li>
+            <li><span>Picosure / Black Doll w/ PDT Laser</span><span>₱ 2,000</span></li>
+          </ul>
+        </div>
+
+        <!-- Body Treats -->
+        <div class="card prices">
+          <h3>Body Treats</h3>
+          <ul>
+            <li><span>Ultimate Massage (1h&nbsp;30m)</span><span>₱ 650</span></li>
+            <li><span>Signature Massage (1&nbsp;hour)</span><span>₱ 450</span></li>
+            <li><span>Express Massage (30&nbsp;mins)</span><span>₱ 300</span></li>
+            <li><span>4‑Hands Massage (1&nbsp;hour)</span><span>₱ 700</span></li>
+            <li><span>Hot Stone Massage</span><span>₱ 650</span></li>
+            <li><span>Ventosa / Cupping</span><span>₱ 650</span></li>
+            <li><span>Acupuncture</span><span>₱ 1,500</span></li>
+            <li><span>Body Scrub</span><span>₱ 850</span></li>
+            <li><span>Foot Massage w/ Hot Stone</span><span>₱ 400</span></li>
+          </ul>
+        </div>
+
+        <!-- EMSCULPT + ULTHERA -->
+        <div class="card prices">
+          <h3>EMSCULPT w/ RF</h3>
+          <ul><li><span>Per&nbsp;Area</span><span>₱ 2,000</span></li></ul>
+          <h3 style="margin-top:1rem">Ulthera</h3>
+          <ul><li><span>Per&nbsp;Session</span><span>₱ 7,500</span></li></ul>
+        </div>
+
+        <!-- Laser Hair Removal -->
+        <div class="card prices">
+          <h3>Laser Hair Removal</h3>
+          <ul>
+            <li><span>Armpit</span><span>₱ 300 / 700</span></li>
+            <li><span>Lower Arms</span><span>₱ 450 / 850</span></li>
+            <li><span>Whole Arms</span><span>₱ 600 / 1,300</span></li>
+            <li><span>Lower Legs</span><span>₱ 500 / 1,000</span></li>
+            <li><span>Whole Legs</span><span>₱ 700 / 1,400</span></li>
+          </ul>
+        </div>
+
+        <!-- Tattoo & Microblading -->
+        <div class="card prices">
+          <h3>Tattoo / Semi‑Permanent Make‑up</h3>
+          <ul>
+            <li><span>Microblading&nbsp;+&nbsp;Shading (incl. retouch)</span><span>₱ 4,500</span></li>
+            <li><span>Shading Only (incl. retouch)</span><span>₱ 3,500</span></li>
+            <li><span>Lip Tattoo (incl. retouch)</span><span>₱ 4,500</span></li>
+            <li><span>Eyeliner – upper / lower</span><span>₱ 2,500</span></li>
+          </ul>
+        </div>
+
+        <!-- Warts Removal -->
+        <div class="card prices">
+          <h3>Warts Removal</h3>
+          <ul>
+            <li><span>Per Piece</span><span>₱ 35</span></li>
+            <li><span>Face Package</span><span>₱ 2,500</span></li>
+            <li><span>Body Package</span><span>₱ 3,500</span></li>
+          </ul>
+        </div>
+
+        <!-- Medical Aesthetics -->
+        <div class="card">
+          <h3>Medical Aesthetics</h3>
+          <p style="line-height:1.6;font-size:.95rem">• Botox / Filler / Thread&nbsp;Lift<br>• Glutathione Drip<br>• PRP Treatment (Face &amp; Scalp)</p>
+        </div>
+
+        <!-- Hair Services -->
+        <div class="card prices">
+          <h3>Barbershop – Hair Services</h3>
+          <ul>
+            <li><span>Haircut (Men/Kids · Women)</span><span>₱ 250 / 270</span></li>
+            <li><span>Shampoo</span><span>₱ 50 / 100</span></li>
+            <li><span>Blow Dry</span><span>₱ 250</span></li>
+          </ul>
+        </div>
+
+        <!-- Hair Treatments List -->
+        <div class="card">
+          <h3>Hair Treatments</h3>
+          <p style="line-height:1.6;font-size:.95rem">Power&nbsp;Dose / Leave‑On Hot‑Oil<br>Hair&nbsp;Spa / Keratin Treatment<br>Hair Relaxing / Rebonding<br>Hair Coloring / Highlights<br>Anti‑Dandruff / Scalp Treatment<br>Permanent Blow Dry<br>Regular Perm / Digital Perm</p>
+        </div>
+
+        <!-- Grooming Add‑ons -->
+        <div class="card prices">
+          <h3>Grooming Add‑ons</h3>
+          <ul>
+            <li><span>Dermaplaning</span><span>₱ 300</span></li>
+            <li><span>Shave</span><span>₱ 180</span></li>
+            <li><span>Ear Cleaning</span><span>₱ 150</span></li>
+            <li><span>Ear Candling</span><span>₱ 250</span></li>
+          </ul>
+        </div>
+
+        <!-- Hair & Make‑up -->
+        <div class="card prices">
+          <h3>Hair &amp; Make‑up<br><span style="font-weight:400;font-size:.85rem">(by appointment)</span></h3>
+          <ul>
+            <li><span>Hairstyle – Adult</span><span>₱ 950</span></li>
+            <li><span>Hairstyle – Kids</span><span>₱ 750</span></li>
+            <li><span>False Eyelashes</span><span>₱ 150</span></li>
+            <li><span>Eye Lash Perming</span><span>₱ 500</span></li>
+            <li><span>Eye Lash Extension</span><span>₱ 1,500</span></li>
+          </ul>
+        </div>
+
+        <!-- Mani‑Pedi -->
+        <div class="card prices">
+          <h3>Manicure &amp; Pedicure</h3>
+          <ul>
+            <li><span>Regular Manicure</span><span>₱ 120</span></li>
+            <li><span>Regular Pedicure</span><span>₱ 150</span></li>
+            <li><span>Polish (Regular) – addl.</span><span>₱ 30 / 50</span></li>
+            <li><span>Change Polish</span><span>₱ 60</span></li>
+            <li><span>Gel Polish</span><span>₱ 420 / 450</span></li>
+            <li><span>Gel Removal Only</span><span>₱ 100</span></li>
+            <li><span>Soft Gel w/ Gel Polish</span><span>₱ 850</span></li>
+            <li><span>Foot Spa w/ Pedicure</span><span>₱ 450</span></li>
+            <li><span>Hand Spa w/ Manicure</span><span>₱ 250</span></li>
+          </ul>
+        </div>
+
+      </div><!-- /.grid -->
+    </section>
+
+    <!-- ================= PACKAGES ================= -->
+    <section id="packages">
+      <h2>Special Packages</h2>
+
+      <!-- ----- Spa Packages ----- -->
+      <h3 style="text-align:center;font-size:1.5rem;margin:2rem 0 .8rem;color:var(--accent-red)">Spa Packages</h3>
+      <div class="grid package-grid">
+        <div class="card">
+          <h3>Ultimate Face Special <span class="badge">₱ 3,200</span></h3>
+          <p style="font-size:.95rem;line-height:1.6">Picosure / Black Doll<br>EMSCULPT</p>
+        </div>
+        <div class="card">
+          <h3>Headstart Special <span class="badge">₱ 2,000</span></h3>
+          <p style="font-size:.95rem;line-height:1.6">Body Scrub<br>Body Massage (1½ h)<br>Diamond Peel</p>
+        </div>
+        <div class="card">
+          <h3>Men's Corner <span class="badge">₱ 1,960</span></h3>
+          <p style="font-size:.95rem;line-height:1.6">Body Massage (1 h)<br>Picosure / Black Doll</p>
+        </div>
+        <div class="card">
+          <h3>Rejuvenating <span class="badge">₱ 2,480</span></h3>
+          <p style="font-size:.95rem;line-height:1.6">Signature Facial<br>Body Massage (1 h)<br>EMSCULPT</p>
+        </div>
+        <div class="card">
+          <h3>Ultimate Bliss <span class="badge">₱ 2,000</span></h3>
+          <p style="font-size:.95rem;line-height:1.6">Diamond Peel<br>Hot Stone Massage<br>Body Scrub</p>
+        </div>
+        <div class="card">
+          <h3>Clean Buff <span class="badge">₱ 3,080</span></h3>
+          <p style="font-size:.95rem;line-height:1.6">EMSCULPT<br>Armpit Diamond Peel<br>Face Diamond Peel</p>
+        </div>
+      </div>
+
+      <!-- ----- Salon Special Packages ----- -->
+      <h3 style="text-align:center;font-size:1.5rem;margin:3rem 0 .8rem;color:var(--accent-red)">Salon Special Packages</h3>
+      <div class="grid package-grid">
+        <div class="card">
+          <h3>Package A <span class="discount">10% OFF</span></h3>
+          <p style="font-size:.95rem;line-height:1.6">Treatment / Color / Rebond<br>Foot Spa + Gel Polish<br>Hand Spa + Gel Polish</p>
+        </div>
+        <div class="card">
+          <h3>Package B <span class="discount">10% OFF</span></h3>
+          <p style="font-size:.95rem;line-height:1.6">Haircut<br>Ear Cleaning<br>Scalp / Hair Treatment<br>Foot Spa + 30 min Massage</p>
+        </div>
+        <div class="card">
+          <h3>Package C <span class="discount">15% OFF</span></h3>
+          <p style="font-size:.95rem;line-height:1.6">Haircut<br>Hair Color<br>Hair Treatment<br>Foot Spa / Massage / Facial (any 2)</p>
+        </div>
+        <div class="card">
+          <h3>Package D <span class="discount">15% OFF</span></h3>
+          <p style="font-size:.95rem;line-height:1.6">Haircut<br>Hair Color<br>Highlights<br>Permanent Blowdry</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact">
+      <h2>Contact &amp; Location</h2>
+      <div style="max-width:650px;margin:0 auto;text-align:center;line-height:1.8;font-size:1rem">
+        <p><strong>Address:</strong> 162 Mary Grace Building, McArthur Hi‑way, Potrero, Malabon City</p>
+        <p><strong>Phone:</strong> (02) 8361‑1701</p>
+        <p><strong>Open Daily:</strong> 9:00 am – 8:00 pm</p>
+        <p><strong>Home Service also available</strong></p>
+        <p>Follow us on Facebook: <em>Headstart Barbershop, Salon &amp; Spa</em></p>
+      </div>
+    </section>
+  <!-- FOOTER -->
+  <footer>
+    <p>All prices are subject to change without prior notice.</p>
+    <p>© 2025 Headstart Salon, Body &amp; Nail Spa. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript at the bottom to prevent loading issues -->
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
